@@ -16,3 +16,6 @@ before_install:
 script:
   - coala --non-interactive -V
   - python -m pytest -s
+
+notifications:
+  email: false
