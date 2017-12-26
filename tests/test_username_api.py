@@ -83,6 +83,10 @@ class TestUsernameApi(object):
     expected = get_expected_response(website, user, 404)
     actual = get_response(self.app, website, user)
 
+    if website == 'opensuse':
+      actual['status'] = username_api.check_username(website, user)['status']
+      logging.getLogger().warn(str(actual))
+
     # this is special to facebook checking,
     # and 'profile' field is only useful for
     # frontend purposes. Skipping here.
